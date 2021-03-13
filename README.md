@@ -1,3 +1,7 @@
-# SheHacks_Team131
+# Portis React Starter
 
-LandMarkit is our project for SheHacks 2021
+## How to start
+
+1. Go to the project directory
+2. `npm install`
+3. `npm start`
