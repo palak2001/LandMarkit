@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import {web3,portis} from "../services/web3";
 
 import {abi} from "../abi/Transaction.js";
-
-const contractAddress = '0x962e3afa410bEAe81FAFB7e3Bb96f1aAb7956591';
+import LocationPopup from '../LocationPopup.js';
+const contractAddress = '0x645425Fafc7D412BFCd0BE222205fc77A6d75122';
 const TransactionContract = new web3.eth.Contract(abi, contractAddress); 
+var a='';
+
+export function check(owneradd,val){
+   // new SendTransferForm().sendTransfer(owneradd,val);
+   alert(owneradd);
+   // console.log(owneradd);
+   // console.log(value);
+}
+
 
 export default class SendTransferForm extends Component {
    constructor(props) {
@@ -13,7 +22,7 @@ export default class SendTransferForm extends Component {
          senderAddress: '',
          receiverAddress: '',
          amount: 1,
-         senderBalance: 0,
+         senderBalance: 5,
          receiverBalance: 0,
          message: '',
       };
@@ -23,9 +32,22 @@ export default class SendTransferForm extends Component {
       portis.showPortis();
    }
 
-   async sendTransfer(){
+   async sendTransfer(owneradd,value){
+      // console.log(owneradd + value);
+      // this.state.receiverAddress=owneradd;
+      // this.state.amount=value;
+      console.log(this.state.senderBalance);
+      console.log("A");
       if(this.state.senderBalance>0){
+         console.log("B");
          try{
+            console.log("C");
+            // console.log(owneradd + value);
+            // let ownadd = owneradd;
+            // this.state.receiverAddress=owneradd;
+            // this.state.amount=value;
+            // console.log(web3.utils.fromWei(await web3.eth.getBalance(this.state.receiverAddress)));
+            // console.log(this.state.amount);
             console.log("try started");
             await TransactionContract.methods
                .transferFunds(this.state.receiverAddress)
